@@ -4,9 +4,10 @@
     <v-navigation-drawer app v-model="drawer" class="blue lighten-2" dark disable-resize-watcher>
       <v-list>
         <template v-for="(item, index) in items">
-          <v-list-item :key="index">
+          <!-- TODO: This isnt done -->
+          <v-list-item :key="index" :href="item.href">
             <v-list-item-content>
-              {{ item.title }}
+              {{ item.text }}
             </v-list-item-content>
           </v-list-item>
           <v-divider :key="`divider-${index}`"></v-divider>
@@ -33,7 +34,11 @@ export default {
     return {
       appTitle: 'Meal Prep',
       drawer: false,
-      items: [{ title: 'Menu' }, { title: 'Sign In' }, { title: 'Join' }]
+      items: [
+        { icon: 'Email', text: 'Menu', href: 'www.google.com' },
+        { icon: 'Email', text: 'Sign In', href: 'www.google.com' },
+        { icon: 'Email', text: 'Join', href: 'www.google.com' },
+        { icon: 'About', text: 'About', href: '/About'}]
     };
   }
 };
